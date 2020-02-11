@@ -7,7 +7,7 @@ with codecs.open('pku_states.txt', 'w', encoding='utf8') as wf:
             words = line.split(' ')
             state = ""
             for word in words:
-                if len(word) == 0:
+                if len(word) == 0 or word == "\r\n":
                     continue
                 if len(word) - 2 < 0:
                     state += 'S'
