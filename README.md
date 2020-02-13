@@ -23,16 +23,18 @@ Next, the Viterbi algorithm is implemented. Using the transfer matrix and the em
 1. matlab   stores plain text, code for matlab, matrix in matlab format.
 2. pku_dic  stores the Chinese character dictionary text file, the character sequence in this file is identical to the emission matrix column sequence, and dictionary size is 4700 for pku_training@ICWS2005.  
 ##files
-1. compsequence.py  
-processes pku_traing corpus file, writes Chinese character dictionary text file to pku_dic folder and replaces Chinese character with character dictionary index in pku_seg.txt file.
-2. compstates.py  
-processes pku_traing corpus file, writes corresponding state of each Chinese character to pku_state.txt file.
-3. pku_seq.txt  
-replaced Chinese character with character dictionary index file and to be used by matlab code.
-4. pku_state.txt    
-corresponding state of each Chinese character in pku_training file, 'B' for 'Beginning of a word', 'M' for 'Middle place of a word', 'E' for 'End of a word' and 'S' for 'Single character word'.
-5. viterbi.py   
-with estimated transfer matrix and emission matrix, processes a sequence of Chinese character, gives the optimal sequence of hidden state.
+1. Matlab needs vectorized character sequence to perform calculation.
+vectorizesequence.py processes pku_traing corpus file, writes Chinese character dictionary text file to pku_dic folder and replaces Chinese character with character dictionary index in pku_seg.txt file.
+2. Compstates
+compgoldstates.py processes pku_traing corpus file, writes corresponding state of each Chinese character to pku_state.txt file.
+comphiddenstate.py use trained HMM model and Viterbi/Viterbi(-log) algorithm to process pku_traing corpus file, writes corresponding state of each Chinese character to pku_hmm_state.txt file.
+3. Matlab folder stores corpus file as well as model segmentation result.
+pku_train_vec_seq.txt replaced Chinese character with character dictionary index file and to be used by matlab code.
+4. State folder stores generated golden states and model states.
+pku_state.txt corresponding state of each Chinese character in pku_training file, 'B' for 'Beginning of a word', 'M' for 'Middle place of a word', 'E' for 'End of a word' and 'S' for 'Single character word'.
+5. viterbi.py and neglogviterbi.py
+viterbi.py with estimated transfer matrix and emission matrix, processes a sequence of Chinese character, gives the optimal sequence of hidden state.
+neglogviterbi.py takes negative logarithm of the element to prevent float Underflow, thus Maximum likelihood turns into Minimum shortest path.
 6. mattester.py     
 validates the matrix file saved by matlab.
 7. requirement.txt  

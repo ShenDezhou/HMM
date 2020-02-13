@@ -1,8 +1,8 @@
 M=4
 N=4698
-fileID = fopen('pku_seq.txt','r');
+fileID = fopen('pku_train_vec_seq.txt','r');
 seq=fscanf(fileID,'%d,')
-fileID = fopen('pku_states.txt','r');
+fileID = fopen('pku_train_states.txt','r');
 state=fscanf(fileID,'%s  ')
-[t,e]=hmmestimate(seq,state,'Statenames',['B','M','E','S'],'Pseudoemissions',ones(M,N)*1e-7)
+[t,e]=hmmestimate(seq,state,'Statenames',['B','M','E','S'],'Pseudoemissions',ones(M,N)*1e-50)
 save te
