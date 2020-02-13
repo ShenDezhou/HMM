@@ -47,3 +47,7 @@ prepares for easy installation by `pip3 install -r requirement.txt`
 Viterbi算法的实现参考了知乎[HMM+Viterbi(维特比算法)+最短路径分析](https://zhuanlan.zhihu.com/p/59889195)里的`3. 伪代码的和资料推荐`；  
 在实现没灵感时参考了Github[jieba-viterbi](https://github.com/fxsjy/jieba/blob/master/jieba/posseg/viterbi.py)的实现；
 在此向两位前辈表示感谢！
+
+#6. What's NEW?
+1. neglog viterbi can prevent float underflow, so long character sequence can be correctly decoded.
+2. Split long sentence at punctuation, then call viterbi multiple times. 
