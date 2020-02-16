@@ -2,7 +2,7 @@ import codecs
 
 from testing.neglogviterbi import neglogviterbi
 
-MODE = 4
+MODE = 2
 
 if MODE == 1:
     INPUT = '../plain/pku_training.utf8'

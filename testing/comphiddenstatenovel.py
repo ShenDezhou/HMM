@@ -31,7 +31,7 @@ with codecs.open(OUTPUT, 'w', encoding='utf8') as wf:
                 wf.write('\n')
                 continue
             # sentences = re.split("[，、。：；]", line)
-            sentences = re.split("[，、。：；]", line)
+            sentences = re.split("[，、。：；？]", line)
             remain = len(line) - len("".join(sentences))
             print(sentences)
             for sentence in sentences:

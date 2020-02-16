@@ -1,6 +1,6 @@
 import codecs
 
-MODE = 2
+MODE = 4
 
 if MODE == 1:
     # train
